@@ -5,8 +5,16 @@
 
 string[] NewThreeSymbolArray (string[] givenArray)
 {
-    int l = 1;
-    string[] newArray = new string[l];
+    int count = 0;
+    for (int i = 0; i < givenArray.Length; i++)
+    {
+        string element = givenArray[i];
+        if (element.Length <= 3)
+        {
+            count++;
+        }
+    }
+    string[] newArray = new string[count];
     for (int i = 0, j = 0; i < givenArray.Length; i++)
     {
         string checkedElement = givenArray[i];
@@ -14,7 +22,6 @@ string[] NewThreeSymbolArray (string[] givenArray)
         {
             newArray[j] = checkedElement;
             j++;
-            l = j;
         }
     }
     return newArray;
@@ -24,7 +31,7 @@ void PrintSimpleArray (string[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        System.Console.WriteLine($"{array[i]}; ");
+        System.Console.Write($"{array[i]}; ");
     }
 }
 
