@@ -5,18 +5,21 @@
 
 string[] NewThreeSymbolArray (string[] givenArray)
 {
+    int l = 1;
+    string[] newArray = new string[l];
     for (int i = 0, j = 0; i < givenArray.Length; i++)
     {
-        string checkedSymbol = givenArray[i];
-        string[] newArray = new string[j];
-        if (checkedSymbol.Length <= 3)
+        string checkedElement = givenArray[i];
+        if (checkedElement.Length <= 3)
         {
-            newArray[j] = checkedSymbol;
+            newArray[j] = checkedElement;
             j++;
+            l = j;
         }
     }
     return newArray;
 }
+
 void PrintSimpleArray (string[] array)
 {
     for (int i = 0; i < array.Length; i++)
@@ -24,3 +27,19 @@ void PrintSimpleArray (string[] array)
         System.Console.WriteLine($"{array[i]}; ");
     }
 }
+
+string[] CreateOriginalArray (string stringElement)
+{
+    string[] array = new string[stringElement.Length];
+    array = stringElement.Split(";");
+    return array;
+}
+
+System.Console.WriteLine("Enter elements and divide them by ';' :");
+string lineOfSymbols = Console.ReadLine();
+string[] originalArray = CreateOriginalArray(lineOfSymbols);
+System.Console.WriteLine();
+
+System.Console.WriteLine("Elements with 3 symbols ar less: ");
+PrintSimpleArray(NewThreeSymbolArray(originalArray));
+System.Console.WriteLine();
