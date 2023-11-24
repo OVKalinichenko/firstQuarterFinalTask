@@ -38,7 +38,7 @@ void PrintSimpleArray (string[] array)
 string[] CreateOriginalArray (string stringElement)
 {
     string[] array = new string[stringElement.Length];
-    array = stringElement.Split(";");
+    array = stringElement.Split("; "); // делится на элементы ";" и пробелом
     return array;
 }
 
@@ -47,6 +47,6 @@ string lineOfSymbols = Console.ReadLine();
 string[] originalArray = CreateOriginalArray(lineOfSymbols);
 System.Console.WriteLine();
 
-System.Console.WriteLine("Elements with 3 symbols ar less: ");
+System.Console.WriteLine("Elements with 3 symbols or less: ");
 PrintSimpleArray(NewThreeSymbolArray(originalArray));
 System.Console.WriteLine();
